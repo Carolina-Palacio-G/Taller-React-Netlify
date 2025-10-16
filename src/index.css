@@ -1,0 +1,150 @@
+/* ===========================
+   Reset mínimo y tipografía
+   - Asegura box-sizing consistente
+   - Define altura total y fuente base
+=========================== */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f6f7f9; /* Fondo gris claro */
+  color: #222;         /* Texto principal en gris oscuro */
+}
+
+/* ===========================
+   Layout
+   - Contenedor centrado con ancho máximo
+   - Separación básica superior/inferior
+=========================== */
+.container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+.header { margin-bottom: 16px; }
+.muted { color: #666; font-size: 14px; } /* Texto secundario */
+
+/* ===========================
+   Toolbar (buscador y filtros)
+   - Tres columnas en desktop
+   - Una columna en pantallas pequeñas
+=========================== */
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr 180px 160px; /* input grande + select + select */
+  gap: 8px;
+  margin-top: 8px;
+}
+@media (max-width: 720px) {
+  .toolbar { grid-template-columns: 1fr; } /* Apila controles en móvil */
+}
+
+/* ===========================
+   Controles de formulario
+   - Estilos básicos consistentes
+   - Placeholder suavizado
+=========================== */
+.search, .select, .sort {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: inherit; /* Usa el color del contenedor (body) */
+}
+.search::placeholder { color: #999; }
+
+/* ===========================
+   Grid de productos
+   - Responsive por columnas
+   - Solo cambia el número de columnas
+=========================== */
+.grid {
+  display: grid;
+  gap: 12px;
+}
+@media (max-width: 640px){
+  .grid { grid-template-columns: repeat(2, 1fr); }  /* 2 columnas en móvil */
+}
+@media (min-width: 641px) and (max-width: 900px){
+  .grid { grid-template-columns: repeat(3, 1fr); }  /* 3 columnas en tablet */
+}
+@media (min-width: 901px){
+  .grid { grid-template-columns: repeat(4, 1fr); }  /* 4 columnas en desktop */
+}
+
+/* ===========================
+   Tarjeta de producto (Card)
+   - Contenedor, imagen y cuerpo
+=========================== */
+.card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  overflow: hidden;        /* Oculta bordes de la imagen */
+  display: flex;
+  flex-direction: column;
+}
+.card-image {
+  width: 100%;
+  aspect-ratio: 4/3;       /* Mantiene proporción estable */
+  object-fit: cover;       /* Recorta sin deformar */
+  background: #eee;        /* Color de fondo mientras carga */
+}
+.card-body {
+  padding: 12px;
+  display: grid;
+  gap: 8px;                /* Separación entre elementos internos */
+}
+.name { margin: 0; font-size: 16px; }
+
+/* ===========================
+   Meta (categoría + estrellas)
+   - Alineación en una fila
+=========================== */
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;    /* Pastilla redondeada */
+  font-size: 12px;
+  background: #eef2ff;     /* Fondo suave azulado */
+  color: #334155;          /* Texto contrastado */
+  border: 1px solid #dbe3ff;
+}
+.stars { letter-spacing: 0.15ch; } /* Espaciado entre símbolos */
+
+/* ===========================
+   Precio y botón
+=========================== */
+.price { font-weight: 700; } /* Resalta el precio */
+.button {
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #222;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;          /* Mano al pasar por encima */
+}
+.button:focus {
+  outline: 2px solid #98c1ff; /* Indica foco accesible */
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Estados y Footer
+=========================== */
+.empty {
+  grid-column: 1 / -1;      /* Ocupa todo el ancho del grid */
+  text-align: center;
+  color: #666;
+  padding: 24px 0;
+}
+.footer {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}

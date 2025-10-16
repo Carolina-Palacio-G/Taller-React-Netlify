@@ -1,0 +1,49 @@
+# =========================================================
+# Logs y archivos de depuración
+# =========================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =========================================================
+# Dependencias y artefactos de build
+# =========================================================
+node_modules/
+dist/
+dist-ssr/
+.dist/
+
+# =========================================================
+# Archivos locales (no compartibles)
+# =========================================================
+# Nota: esta regla ignora *cualquier* archivo que termine en .local.
+# Si prefieres ser más específico, usa:
+# .env.local
+# .env.*.local
+*.local
+
+# =========================================================
+# Variables de entorno / secretos
+# =========================================================
+.env
+
+# =========================================================
+# Configuraciones de editor/IDE
+# =========================================================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# =========================================================
+# Archivos del sistema
+# =========================================================
+.DS_Store
